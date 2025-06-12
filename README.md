@@ -25,7 +25,7 @@ If you compare with, build on, or use aspects of this work, please cite the foll
 ```js/java/c#/text
 @inproceedings{chen2025uncertainty,
   title={Uncertainty-Aware Graph Neural Networks: A Multi-Hop Evidence Fusion Approach},
-  author={Chen, Qingfeng and Li, Shiyuan and Liu, Yixin and Pan, Shirui and Geoff, Webb and Zhang, Shichao},
+  author={Chen, Qingfeng and Li, Shiyuan and Liu, Yixin and Pan, Shirui and Geoffrey, Webb and Zhang, Shichao},
   journal={IEEE Transactions on Neural Networks and Learning Systems},
   year={2025}
 }
