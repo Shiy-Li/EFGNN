@@ -1,0 +1,114 @@
+{
+    "Cora": {
+        "best_params": {
+            "lr": 0.02,
+            "hid_dim": 32,
+            "weight_decay": 0.02,
+            "num_hops": 32,
+            "input_droprate": 0.5,
+            "dropout": 0.3,
+            "dropnode_rate": 0.3,
+            "kl": 0.05,
+            "dis": 0.5
+        },
+        "best_acc": 0.0
+    },
+    "Citeseer": {
+        "best_params": {
+            "lr": 0.005,
+            "hid_dim": 256,
+            "weight_decay": 0.02,
+            "num_hops": 8,
+            "input_droprate": 0.1,
+            "dropout": 0.6,
+            "dropnode_rate": 0.1,
+            "kl": 0.05,
+            "dis": 0.5
+        },
+        "best_acc": 0.0
+    },
+    "Pubmed": {
+        "best_params": {
+            "lr": 0.01,
+            "hid_dim": 64,
+            "weight_decay": 0.01,
+            "num_hops": 8,
+            "input_droprate": 0.0,
+            "dropout": 0.0,
+            "dropnode_rate": 0.0,
+            "kl": 0.05,
+            "dis": 0.5
+        },
+        "best_acc": 0.0
+    },
+    "Photo": {
+        "best_params": {
+            "lr": 0.005,
+            "hid_dim": 32,
+            "weight_decay": 0.005,
+            "num_hops": 8,
+            "input_droprate": 0.0,
+            "dropout": 0.0,
+            "dropnode_rate": 0.7,
+            "kl": 0.05,
+            "dis": 0.5
+        },
+        "best_acc": 0.0
+    },
+    "Computers": {
+        "best_params": {
+            "lr": 0.02,
+            "hid_dim": 64,
+            "weight_decay": 0.001,
+            "num_hops": 6,
+            "dropout": 0.2,
+            "input_droprate": 0.2,
+            "dropnode_rate": 0.7,
+            "dis": 0.5,
+            "kl": 0.05
+        },
+        "best_acc": 0.821234530636885
+    },
+    "Actor": {
+        "best_params": {
+            "lr": 0.001,
+            "hid_dim": 512,
+            "weight_decay": 0.005,
+            "num_hops": 2,
+            "dropout": 0.1,
+            "input_droprate": 0.1,
+            "dropnode_rate": 0.0,
+            "dis": 0.5,
+            "kl": 0.001
+        },
+        "best_acc": 0.30707482993197277
+    },
+    "chameleon": {
+        "best_params": {
+            "lr": 0.05,
+            "hid_dim": 256,
+            "weight_decay": 1e-06,
+            "num_hops": 4,
+            "dropout": 0.1,
+            "input_droprate": 0.3,
+            "dropnode_rate": 0.3,
+            "dis": 0.1,
+            "kl": 0.001
+        },
+        "best_acc": 0.4568327577701036
+    },
+    "squirrel": {
+        "best_params": {
+            "lr": 0.005,
+            "hid_dim": 512,
+            "weight_decay": 1e-10,
+            "num_hops": 8,
+            "dropout": 0.8,
+            "input_droprate": 0.7,
+            "dropnode_rate": 0.5,
+            "dis": 0.3,
+            "kl": 0.005
+        },
+        "best_acc": 0.29594021409816196
+    }
+}
