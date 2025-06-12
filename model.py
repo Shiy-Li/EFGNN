@@ -1,5 +1,5 @@
 import torch.nn as nn
-from utils import ce_loss, KLL
+from utils import ce_loss, reg_loss
 import torch
 from torch.nn.parameter import Parameter
 from torch.nn.modules.module import Module
@@ -38,15 +38,12 @@ class MLPLayer(Module):
 
 
 class MLP(nn.Module):
-    def __init__(self, nfeat, nhid, num_class, input_droprate, dropout, use_bn=False):
+    def __init__(self, nfeat, nhid, num_class, input_droprate, dropout):
         super(MLP, self).__init__()
 
         self.layer1 = MLPLayer(nfeat, nhid)
         self.layer2 = MLPLayer(nhid, num_class)
-        self.bn1 = nn.BatchNorm1d(nfeat)
-        self.bn2 = nn.BatchNorm1d(nhid)
 
-        self.use_bn = use_bn
         self.act_mlp = nn.Softplus()
         self.act = nn.Tanh()
         self.input_drop = nn.Dropout(input_droprate)
@@ -54,13 +51,9 @@ class MLP(nn.Module):
 
     def forward(self, x):
 
-        if self.use_bn:
-            x = self.bn1(x)
         x = self.input_drop(x)
         x = self.act(self.layer1(x))
 
-        if self.use_bn:
-            x = self.bn2(x)
         x = self.hidden_drop(x)
         x = self.act_mlp(self.layer2(x))
         return x
@@ -74,7 +67,7 @@ class EFGNN(nn.Module):
         self.kl = args.kl
         self.dis = args.dis
         self.Classifiers = MLP(args.input_dim, args.hid_dim, args.num_class,
-                               args.input_droprate, args.dropout, args.use_bn)
+                               args.input_droprate, args.dropout)
 
     def forward(self, X, y, mask):
         evidence = dict()
@@ -90,13 +83,13 @@ class EFGNN(nn.Module):
         alpha_a = evidence_a + 1
         alpha_a, u_a, p = self.cal_u(alpha_a)
         loss += ce_loss(y[mask], alpha_a[mask], self.classes)
-        loss += KLL(y[mask], evidence_a[mask], self.classes, self.kl, self.dis)
+        loss += reg_loss(y[mask], evidence_a[mask], self.classes, self.kl, self.dis)
         loss = torch.mean(loss)
 
         return evidence, evidence_a, u_a, loss
 
-    def infer(self, input):
-        return self.Classifiers(input)
+    def infer(self, embed):
+        return self.Classifiers(embed)
 
     def cal_u(self, alpha):
         S = torch.sum(alpha, dim=1, keepdim=True)
