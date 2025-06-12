@@ -16,7 +16,7 @@ pip install torch-geometric==2.6.1
 Just run the script corresponding to the dataset and method you want. For instance:
 
 ```js/java/c#/text
-python main.py
+python main.py --dataset cora
 ```
 
 # Cite
