@@ -1,5 +1,5 @@
 # EFGNN
-This repository is the official implementation of "[Uncertainty-Aware Graph Neural Networks: A Multi-Hop Evidence Fusion Approach](https://arxiv.org/abs/2506.13083)", accepted by TNNLS.
+This repository is the official implementation of "[Uncertainty-Aware Graph Neural Networks: A Multi-Hop Evidence Fusion Approach](https://arxiv.org/abs/2506.13083)", accepted by IEEE Transactions on Neural Networks and Learning Systems.
 
 # Setup
 ```js/java/c#/text
